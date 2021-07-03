@@ -1,4 +1,5 @@
 package com.sheke.controller;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class SecondSenateVoteController {
 	}
 	
 	@PostMapping(value="/add")
-	public ResponseEntity<String> save(@RequestBody SecondSenateVote ssVote) {
+	public ResponseEntity<String> save(@RequestBody SecondSenateVote ssVote) throws SQLException {
 		secondSenateVoteRepository.save(ssVote);
 		
 		return ResponseEntity.ok(ssVote.getVoterId() +" has been voted successfully");

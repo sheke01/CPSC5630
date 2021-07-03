@@ -1,5 +1,6 @@
 package com.sheke.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class PresidentVoteController {
 	}
 	
 	@PostMapping(value="/add")
-	public ResponseEntity<String> save(@RequestBody PresidentVotes request) {
+	public ResponseEntity<String> save(@RequestBody PresidentVotes request) throws SQLException{
 		
 		System.out.println(request.getVoterId());
 		System.out.println(request.getCandidateName());

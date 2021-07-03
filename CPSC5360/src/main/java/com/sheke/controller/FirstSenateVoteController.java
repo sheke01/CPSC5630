@@ -1,5 +1,6 @@
 package com.sheke.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class FirstSenateVoteController {
 	}
 	
 	@PostMapping(value="/add")
-	public ResponseEntity<String> save(@RequestBody FirstSenateVote fsVote) {
+	public ResponseEntity<String> save(@RequestBody FirstSenateVote fsVote) throws SQLException{
 		firstSenateVoteRepository.save(fsVote);
 		
 		return ResponseEntity.ok(fsVote.getVoterId() +" has been voted successfully");
